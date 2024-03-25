@@ -2,5 +2,3 @@ applications:
 - name: node-info
   instances: 1
   memory: 256M
-  env:
-    MESSAGE: "Hello from the node info app!"
