@@ -8,4 +8,5 @@ app_name=${1:-"node-info"}
 
 app_guid=$(cf app "${app_name}" --guid)
 process_guid=$(cf curl "/v3/apps/${app_guid}/processes" | jq '.resources[0].guid' -r)
-cf curl "/v3/processes/${process_guid}/stats" | jq '.resources[] | "index \(.index): cell \(.host)"' -r
+cf curl "/v3/processes/${process_guid}/stats" \
+  | jq '.resources[] | "index \(.index): cell \(.host)"' -r
